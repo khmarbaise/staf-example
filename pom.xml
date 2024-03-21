@@ -81,6 +81,17 @@
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>default-jar</id>
+            <phase>none</phase>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-assembly-plugin</artifactId>
         <executions>
           <execution>
@@ -91,6 +102,7 @@
             <phase>package</phase>
             <configuration>
               <appendAssemblyId>false</appendAssemblyId>
+              <attach>false</attach>
               <archive>
                 <manifestEntries>
                   <Manifest-Version>1.0</Manifest-Version>

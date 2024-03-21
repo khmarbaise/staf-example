@@ -80,6 +80,10 @@
   <build>
     <plugins>
       <plugin>
+        <!--
+         ! Remove the maven-jar-plugin from the life cycle, because this task
+         ! is done by maven-assembly-plugin
+        -->
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
         <executions>
@@ -89,7 +93,6 @@
           </execution>
         </executions>
       </plugin>
-
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-assembly-plugin</artifactId>
@@ -117,24 +120,6 @@
               <descriptors>
                 <descriptor>src/main/assembly/staf.xml</descriptor>
               </descriptors>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
-        <groupId>com.soebes.maven.plugins</groupId>
-        <artifactId>echo-maven-plugin</artifactId>
-        <version>0.5.0</version>
-        <executions>
-          <execution>
-            <phase>initialize</phase>
-            <goals>
-              <goal>echo</goal>
-            </goals>
-            <configuration>
-              <echos>
-                <echo>Project: ${project.build.outputDirectory}</echo>
-              </echos>
             </configuration>
           </execution>
         </executions>

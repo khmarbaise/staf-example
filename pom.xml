@@ -79,6 +79,57 @@
   <build>
     <plugins>
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>getinfos</id>
+            <goals>
+              <goal>collect</goal>
+            </goals>
+            <configuration>
+              <includeScope>compile</includeScope>
+              <outputScope>false</outputScope>
+              <outputFile>${project.build.directory}/x.log</outputFile>
+            </configuration>
+          </execution>
+          <execution>
+            <id>getclasspath</id>
+            <goals>
+              <goal>build-classpath</goal>
+            </goals>
+            <configuration>
+              <outputFile>${project.build.directory}/cp.log</outputFile>
+              <prefix>,</prefix>
+              <includeScope>compile</includeScope>
+              <stripVersion>true</stripVersion>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+<!--      <plugin>-->
+<!--        <groupId>org.apache.maven.plugins</groupId>-->
+<!--        <artifactId>maven-scripting-plugin</artifactId>-->
+<!--        <version>3.0.0</version>-->
+<!--        <configuration>-->
+<!--          <engineName>Maven-Scripting-Java-Engine</engineName>-->
+<!--          <script>-->
+<!--            <![CDATA[-->
+<!--                  $log.info(IntStream.rangeClosed(1, 10).sum() + ' ' + $project.getArtifactId());-->
+<!--                ]]>-->
+<!--          </script>-->
+<!--        </configuration>-->
+<!--        <executions>-->
+<!--          <execution>-->
+<!--            <id>scripting</id>-->
+<!--            <goals>-->
+<!--              <goal>eval</goal>-->
+<!--            </goals>-->
+<!--            <phase>process-resources</phase>-->
+<!--          </execution>-->
+<!--        </executions>-->
+<!--      </plugin>-->
+      <plugin>
         <!--
          ! Remove the maven-jar-plugin from the life cycle, because this task
          ! is done by maven-assembly-plugin
@@ -94,7 +145,8 @@
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-assembly-plugin</artifactId>
+	<artifactId>maven-assembly-plugin</artifactId>
+	<version>3.7.1</version>
         <executions>
           <execution>
             <id>packaging</id>

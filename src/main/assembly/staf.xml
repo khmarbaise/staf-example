@@ -26,14 +26,6 @@ xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assemb
       <includes>
         <include>**/*.class</include>
       </includes>
-<!--      <includes/>-->
-<!--      <excludes/>-->
-<!--      <fileMode/>-->
-<!--      <directoryMode/>-->
-<!--      <directory/>-->
-<!--      <lineEnding/>-->
-<!--      <filtered/>-->
-<!--      <nonFilteredFileExtensions/>-->
     </fileSet>
   </fileSets>
 

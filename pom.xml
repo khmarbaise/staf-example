@@ -5,7 +5,7 @@
   <parent>
     <groupId>com.soebes.smpp</groupId>
     <artifactId>smpp</artifactId>
-    <version>7.0.0</version>
+    <version>7.0.5</version>
     <relativePath/>
   </parent>
 
@@ -146,7 +146,6 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
 	<artifactId>maven-assembly-plugin</artifactId>
-	<version>3.7.1</version>
         <executions>
           <execution>
             <id>packaging</id>
